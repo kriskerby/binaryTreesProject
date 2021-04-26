@@ -3,8 +3,8 @@
 // traversal.
 function preOrderArray(root) {
     // Your code here
-    let newArr = [] 
-    if(!root) return newArr  //base case
+    let newArr = []
+    if (!root) return newArr  //base case
     newArr.push(root.val)
     newArr.push(...preOrderArray(root.left))
     newArr.push(...preOrderArray(root.right))
@@ -19,13 +19,13 @@ function preOrderArray(root) {
 function inOrderArray(root) {
     // Your code here
     let newArr = []
-    if(!root) return newArr //Base Case
+    if (!root) return newArr //Base Case
 
     newArr.push(...inOrderArray(root.left))
     newArr.push(root.val)
     newArr.push(...inOrderArray(root.right))
 
-    return newArr 
+    return newArr
 }
 
 // Implement a function that takes the root of a Binary Tree
@@ -33,11 +33,22 @@ function inOrderArray(root) {
 // traversal.
 function postOrderArray(root) {
     // Your code here
+    let newArr = []
+    if (!root) return newArr //Base Case
+
+    // newArr.push(inOrderArray(root.left).concat(inOrderArray(root.right)).concat(root.val))
+   newArr.push(...postOrderArray(root.left))
+   newArr.push(...postOrderArray(root.right))
+   newArr.push(root.val)
+  
+
+    return newArr
+
 }
 
 
 module.exports = {
-  preOrderArray,
-  inOrderArray,
-  postOrderArray
+    preOrderArray,
+    inOrderArray,
+    postOrderArray
 };
