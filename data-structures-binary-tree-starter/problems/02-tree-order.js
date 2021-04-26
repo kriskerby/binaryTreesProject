@@ -5,7 +5,6 @@ function preOrderArray(root) {
     // Your code here
     let newArr = [] 
     if(!root) return newArr  //base case
-    // let current = root 
     newArr.push(root.val)
     newArr.push(...preOrderArray(root.left))
     newArr.push(...preOrderArray(root.right))
@@ -19,6 +18,14 @@ function preOrderArray(root) {
 // traversal.
 function inOrderArray(root) {
     // Your code here
+    let newArr = []
+    if(!root) return newArr //Base Case
+
+    newArr.push(...inOrderArray(root.left))
+    newArr.push(root.val)
+    newArr.push(...inOrderArray(root.right))
+
+    return newArr 
 }
 
 // Implement a function that takes the root of a Binary Tree
